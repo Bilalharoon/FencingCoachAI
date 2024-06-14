@@ -2,7 +2,9 @@ from googleapiclient.discovery import build
 import json
 
 CHANNEL_ID = "UCxi42r9Q2RtW6Hq20FtQu6A"
-API_KEY = "AIzaSyDzibM8xOjXJlxjo99TrRUDOiUAKDlAY-o"
+with open("SECRETS.json", 'r') as secrets:
+    secrets = json.load(secrets)
+    API_KEY = secrets["API_KEY"]
 
 # Function to get all video links from a YouTube channel
 def get_all_video_links(api_key, channel_id):
